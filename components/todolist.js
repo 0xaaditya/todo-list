@@ -70,7 +70,7 @@ export default function TodoList() {
         </button>
         <h1 className="text-2xl font-semibold">Pending Task List</h1>
         {list}
-      <hr></hr>
+        <hr></hr>
 
         <h1 className="text-2xl font-semibold">Completed Task List</h1>
         <del className=" text-green-500">{completedlist}</del>

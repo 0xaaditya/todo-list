@@ -1,4 +1,3 @@
-
 import Layout from "../components/layout";
 import TodoList from "../components/todolist";
 
