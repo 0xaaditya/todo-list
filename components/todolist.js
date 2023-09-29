@@ -27,10 +27,23 @@ export default function TodoList() {
     setTodo(todo.filter((a) => a.id !== task.id));
   }
 
+  function revertTodo(done) {
+    setTodo([...todo, { id: done.id, taskname: done.taskname, status: false }]);
+    setCompeltedTasks(completedTasks.filter((a) => a.id !== done.id));
+  }
+
   const completedlist = completedTasks.map((done) => (
     <div key={done.id}>
       <ul>
-        <li>{done.taskname}</li>
+        <li>
+          <span className="ml-2">{done.taskname}</span>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded mt-2"
+            onClick={() => revertTodo(done)}
+          >
+            revert
+          </button>
+        </li>
       </ul>
     </div>
   ));
@@ -73,7 +86,8 @@ export default function TodoList() {
         <hr></hr>
 
         <h1 className="text-2xl font-semibold">Completed Task List</h1>
-        <del className=" text-green-500">{completedlist}</del>
+
+        {completedlist}
       </div>
     </div>
   );
